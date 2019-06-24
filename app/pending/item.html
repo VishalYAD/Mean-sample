@@ -1,0 +1,84 @@
+<md-dialog aria-label="Details">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools bg-red">
+        <h2>Details</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <h3 style="text-align:center">Request created by {{idetail.rname}} on {{idetail.dt|date:"medium"}}. </h3>
+         <p>&nbsp;</p>
+          <div class="row">    
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+             <span><b>Name</b></span>&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;:&ensp;{{idetail.rname}}
+          </div>
+		      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+             <span><b>Mobile Number</b></span>&emsp;:&ensp;{{idetail.phno}}
+          </div>
+		      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+             <span><b>Department</b></span>&ensp;&emsp;&emsp;:&ensp;{{idetail.dep}}
+          </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <span><b>Department Head</b></span>:&ensp;{{idetail.dhead}}
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <span><b>Vendor</b></span>&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;:&ensp;{{idetail.vname1}}
+      </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <span><b>Vendor Code</b></span>&emsp;&emsp;&nbsp;:&ensp;{{idetail.vcode}}
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <span><b>Vendor Name</b></span>&emsp;&ensp;&nbsp;:&ensp;{{idetail.vname2}}
+        </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <span><b>Nature</b></span>&emsp;&emsp;&emsp;&emsp;&emsp;:&ensp;{{idetail.nature}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>Vendor Email</b></span>&emsp;&ensp;&nbsp;:&ensp;{{idetail.vemail}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>Vendor Address</b></span>&ensp;&nbsp;:&ensp;{{idetail.vadd}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>Submission Date</b></span>&nbsp;:&ensp;{{idetail.submissionDate | date:"fullDate"}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>Return Date</b></span>&emsp;&emsp;&ensp;&nbsp;:&ensp;{{idetail.returnDate | date:"fullDate"}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>Currency</b></span>&emsp;&emsp;&emsp;&ensp;&nbsp;:&ensp;{{idetail.currency}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>CST/LST</b></span>&emsp;&emsp;&emsp;&emsp;:&ensp;{{idetail.cstnum}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>GST</b></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&ensp;{{idetail.gstnum}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>E-GST</b></span>&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;:&ensp;{{idetail.egstnum}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>E-way Bill</b></span>&emsp;&emsp;&emsp;&ensp;:&ensp;{{idetail.ebill}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <span><b>Tax category</b></span>&emsp;&emsp;&nbsp;:&ensp;{{idetail.taxc}}
+            </div>
+      </div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="answer()">
+       Print
+      </md-button>
+      <md-button ng-click="cancel()">
+        Close
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+

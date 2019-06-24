@@ -1,0 +1,191 @@
+
+<div class="container-fluid" ng-show="vm.show !='den'">
+  <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+              <div class="header">
+                  <h1>
+                      Request Form
+                  </h1>
+              </div>
+    <div  ng-cloak >
+      <md-content layout-padding>
+       <div>
+        <form name="vm.userForm" novalidate>
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Requester Name</label>
+              <input ng-model="vm.user.rname" required name="reqname">
+              <div ng-messages="userForm.reqname.$error">
+              <div ng-message="required">You must enter name.</div>
+            </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Date</label>
+              <input value="{{vm.date | date:'yyyy-MM-dd'}}" disabled>
+            </md-input-container>
+          </div>
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Requester Mobile Number</label>
+              <input ng-model="vm.user.phno" required name="reqphno">
+              <div ng-messages="userForm.reqphno.$error">
+              <div ng-message="required">You must Mobile Number.</div>
+            </div>
+            </md-input-container>
+              <md-input-container class="md-block" flex-gt-sm>
+              <label>Nature of processing</label>
+              <md-select ng-model="vm.user.nature" required name="nop">
+                <md-option ng-repeat="nature in vm.natures" value="{{nature.name}}">
+                  {{nature.name}}
+                </md-option>
+              </md-select>
+              <div ng-messages="userForm.nop.$error">
+              <div ng-message="required">You must Select Nature.</div>
+            </div>
+            </md-input-container>     
+          </div>	
+          <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+              <label>Department Name</label>
+              <md-select ng-model="vm.user.dep" required name="depname">
+                <md-option ng-repeat="dept in vm.depts" value="{{dept.name}}">
+                  {{dept.name}}
+                </md-option>
+              </md-select>
+              <div ng-messages="userForm.depname.$error">
+              <div ng-message="required">You must Select Department.</div>
+            </div>
+            </md-input-container> 
+             <md-input-container class="md-block" flex-gt-sm>
+              <label>Department Head</label>
+              <input ng-model="vm.user.dhead" required name ="dephead">
+              <div ng-messages="userForm.dephead.$error">
+              <div ng-message="required">You must enter name of department head.</div>
+            </div>
+            </md-input-container>
+          </div>
+          <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+              <label>Vendor Name</label>
+              <md-select ng-model="vm.user.vname1" ng-change="vm.Getvendor()" required name="vnamee">
+                <md-option ng-repeat="vname in vm.vnames" value="{{vname.name}}" >
+                  {{vname.name}}
+                </md-option>
+              </md-select>
+              <div ng-messages="userForm.vnamee.$error">
+              <div ng-message="required">You must Select Vendor Name.</div>
+            </div>
+            </md-input-container> 
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Vendor Code</label>
+              <input ng-model="vm.user.vcode" required name="vcodee">
+              <div ng-messages="userForm.vcodee.$error">
+              <div ng-message="required">You must enter vendor code.</div>
+            </div>
+            </md-input-container>
+             <md-input-container class="md-block" flex-gt-sm>
+              <label>Vendor's Name</label>
+              <input ng-model="vm.user.vname2" required name="vnamee2">
+              <div ng-messages="userForm.vnamee2.$error">
+              <div ng-message="required">You must Vendor's Name.</div>
+            </div>
+            </md-input-container>
+          </div>	
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>CST/LST number of Vendor</label>
+              <input ng-model="vm.user.cstnum" required name="cstlst">
+              <div ng-messages="userForm.cstlst.$error">
+              <div ng-message="required">You must enter CST/LST number.</div>
+            </div>
+            </md-input-container>
+  
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Vendor's Email</label>
+              <input ng-model="vm.user.vemail" type="email" required name="vemaile">
+              <div ng-messages="userForm.vemaile.$error">
+              <div ng-message="required">You must enter email.</div>
+              <div ng-message="email">Invalid email.</div>
+            </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Vendor's Address</label>
+              <input ng-model="vm.user.vadd" required name="vaddress">
+              <div ng-messages="userForm.vaddress.$error">
+              <div ng-message="required">You must enter vendor address.</div>
+            </div>
+            </md-input-container>
+          </div>	
+          <div layout-gt-xs="row">
+            <md-input-container>
+              <label>Item Out Date</label>
+              <md-datepicker ng-model="vm.user.submissionDate" md-min-date="vm.minDate"> </md-datepicker>
+            </md-input-container>
+  
+            <md-input-container ng-if="vm.user.submissionDate">
+              <label>Item return Date</label>
+              <md-datepicker ng-model="vm.user.returnDate"  md-min-date="vm.user.submissionDate"></md-datepicker>
+            </md-input-container>
+          </div>
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Currency</label>
+              <md-select ng-model="vm.user.currency" required name="curre">
+                <md-option ng-repeat="curr in vm.currs" value="{{curr.name}}">
+                  {{curr.name}}
+                </md-option>
+              </md-select>
+              <div ng-messages="userForm.curre.$error">
+              <div ng-message="required">You must enter currency.</div>
+            </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>GST Number</label>
+              <input ng-model="vm.user.gstnum" required name="gstnume">
+              <div ng-messages="userForm.gstnume.$error">
+              <div ng-message="required">You must enter GST.</div>
+            </div>
+            </md-input-container>
+  
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>GST Entry Number</label>
+              <input ng-model="vm.user.egstnum" required name="egstnume">
+              <div ng-messages="userForm.egstnume.$error">
+              <div ng-message="required">You must enter GST entry number.</div>
+            </div>
+            </md-input-container>
+            
+          </div>
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>e-WayBill Number</label>
+              <input ng-model="vm.user.ebill" required name="ebille">
+              <div ng-messages="userForm.ebille.$error">
+              <div ng-message="required">e-WayBill.</div>
+            </div>
+            </md-input-container>
+              <md-input-container class="md-block" flex-gt-sm>
+              <label>Tax Category</label>
+              <md-select ng-model="vm.user.taxc" required name="taxce">
+                <md-option ng-repeat="tax in vm.taxes" value="{{tax.name}}">
+                  {{tax.name}}
+                </md-option>
+              </md-select>
+              <div ng-messages="userForm.taxce.$error">
+              <div ng-message="required">You must select tax category.</div>
+            </div>
+            </md-input-container>     
+          </div>
+            <div layout="row" layout-align="end" flex>
+             <button class="btn btn-primary" type="submit" ng-click="vm.saveUserreq()">Submit</button> 
+        </div>
+        </form>
+        
+      </div>
+    </md-content>
+  </div>
+</div>
+</div>
+</div>
+</div>
